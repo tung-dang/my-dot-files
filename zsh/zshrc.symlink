@@ -1,0 +1,98 @@
+load_node_version_manager(){
+  nvm use
+}
+
+main() {
+    # all of our zsh files
+    typeset -U config_files
+
+    config_files=($ZSH_DF/**/*.zsh)
+
+    # Don't auto-import anything under ohmyzsh-custom. baaaad shit will ensue.
+    #config_files=(${config_files:#$ZSH_DF/ohmyzsh-custom*})
+
+    # exclude `.archive` folder
+    config_files=(${config_files:#$ZSH_DF/.archive*})
+
+    #####################################################################
+    #1. load global first
+    for file in ${(M)config_files:#*/02_global/*.zsh}
+    do
+        source $file
+    done
+
+    # load *zshenv
+    # for file in ${(M)config_files:#*/*.zshenv}
+    # do
+    #     source $file
+    # done
+
+    #2. load the path files
+    for file in ${(M)config_files:#*/path.zsh}
+    do
+        source $file
+    done
+
+    # exclude global folder
+    config_files=(${config_files:#$ZSH_DF/02_global*})
+
+    #3. and then load everything but the path and completion files
+    for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
+    do
+        source $file
+        #printf "$file\n"
+    done
+
+
+    #4 load every completion after autocomplete loads
+    # all of our zsh files
+    typeset -U config_files
+
+    for file in ${(M)config_files:#*/completion.zsh}
+    do
+        source $file
+    done
+
+    unset config_files
+
+    # https://iterm2.com/documentation-shell-integration.html
+    iterm2_shell_integration="${HOME}/.iterm2_shell_integration.`command basename $SHELL`"
+    test -e $iterm2_shell_integration && source $iterm2_shell_integration
+
+    # source /Users/tthanhdang/.jmake/completion/jmake.completion.zsh
+
+    # https://github.com/sindresorhus/pure
+    fpath=( "$HOME/.zfunctions" $fpath )
+    autoload -U promptinit; promptinit
+    PURE_PROMPT_SYMBOL="❤️ "
+    prompt pure
+
+#    brew install zsh-completions
+    fpath=(/usr/local/share/zsh-completions $fpath)
+
+    load_node_version_manager
+
+    # print time to load all env.
+    (( total = $SECONDS - $DOTFILES_START ))
+    echo "Shell started in ${total}s"
+}
+
+
+all_args=$@;
+main "$all_args"
+
+export PATH="$HOME/.yarn/bin:$PATH"
+
+# added by travis gem
+[ -f /Users/tthanhdang/.travis/travis.sh ] && source /Users/tthanhdang/.travis/travis.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/tthanhdang/src/_lab/react-redux-blog/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/tthanhdang/src/_lab/react-redux-blog/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/tthanhdang/src/_lab/react-redux-blog/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/tthanhdang/src/_lab/react-redux-blog/node_modules/tabtab/.completions/sls.zsh

@@ -1,0 +1,108 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# Temporary files #
+###################
+*.swp
+*.swo
+*~
+
+# Packages #
+############
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Generated code #
+*~
+bower_components
+node_modules
+.sass-cache/
+
+dist-master-*
+dist-after-*
+build-output-*
+
+.cache
+.tmp
+.iml
+.svn
+target/
+*.imls
+*.egg-info
+.codeintel
+htmlcov
+.coverage
+*.coverage
+web-app/WEB-INF/tld/c.tld
+web-app/WEB-INF/tld/fmt.tld
+.vagrant/
+.gradle/
+*.pyc
+.flowconfig
+.vscode
+.factorypath
+
+# Sublime #
+Side Bar Folders.sublime-settings
+*.sublime-project
+*.sublime-workspace
+
+# Custom
+my-note.md
+
+# IDEA & Webstorm
+*.iml
+packages/confluence-fabric-editor/.idea/*
+packages/confluence-fabric-editor/.idea/misc.xml
+packages/confluence-fabric-editor/.idea/confluence-fabric-editor.iml
+packages/confluence-fabric-editor/.idea/jsLibraryMappings.xml
+packages/confluence-fabric-editor/.idea/modules.xml
+packages/confluence-fabric-editor/.idea/vcs.xml
+packages/confluence-fabric-editor/.idea/workspace.xml
+packages/confluence-fabric-editor/.idea/codeStyles/codeStyleConfig.xml
+packages/confluence-fabric-editor/.idea/inspectionProfiles/Project_Default.xml
+yarn-error.log
+
+confl-run-prod.properties
+chromedriver.log
+
+*/local.properties
+
+03_secret
+*_secret
+.secret
+.asap-config
+
+# Atlaskit
+# packages/*/*.d.ts
+# packages/*/*.js
+# packages/*/components/
+

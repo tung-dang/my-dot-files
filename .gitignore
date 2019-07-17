@@ -1,0 +1,35 @@
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+Desktop.ini
+Thumbs.db
+.Spotlight-V100
+.Trashes
+
+# Generated code #
+*~
+bower_components
+components
+node_modules
+.sass-cache
+.tmp
+.idea
+.svn
+target/
+*.imls
+*.egg-info
+.codeintel
+htmlcov
+.coverage
+*.coverage
+web-app/WEB-INF/tld/c.tld
+web-app/WEB-INF/tld/fmt.tld
+.vagrant/
+.gradle/
+*.pyc
+.flowconfig
+
+03_secret

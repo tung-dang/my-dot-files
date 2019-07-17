@@ -1,0 +1,211 @@
+[user]
+	name = Tung Dang
+	email = tthanhdang@atlassian.com
+  helper = osxkeychain
+[color]
+    ui = auto
+    branch = auto
+    diff = always
+    status = auto
+[color "branch"]
+    current = yellow reverse
+    local = yellow
+    remote = green
+[color "diff"]
+    meta = yellow bold
+    frag = magenta bold
+    old = red bold
+    new = green bold
+    plain = white
+[color "status"]
+    added = yellow
+    changed = green
+    untracked = cyan
+[diff]
+    renames = true
+	  algorithm = histogram
+    mnemonicprefix = true
+    tool = sourcetree
+
+[difftool "sourcetree"]
+	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+	path = 
+
+[mergetool "sourcetree"]
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	trustExitCode = true
+
+# [difftool "intellij"]
+#    cmd = "/Applications/IntelliJ IDEA.app/Contents/MacOS/idea" diff $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE")
+# [merge]
+#     tool = intellij
+# [mergetool "intellij"]
+#  #   cmd = "/Applications/IntelliJ IDEA.app/Contents/MacOS/idea" merge $(cd $(dirname "$LOCAL") && pwd)/$(basename "$LOCAL") $(cd $(dirname "$REMOTE") && pwd)/$(basename "$REMOTE") $(cd $(dirname "$BASE") && pwd)/$(basename "$BASE") $(cd $(dirname "$MERGED") && pwd)/$(basename "$MERGED")
+#     cmd = /Applications/IntelliJ\\ IDEA.app/Contents/MacOS/idea merge $(cd $(dirname \"$LOCAL\") && pwd)/$(basename \"$LOCAL\") $(cd $(dirname \"$REMOTE\") && pwd)/$(basename \"$REMOTE\") $(cd $(dirname \"$BASE\") && pwd)/$(basename \"$BASE\") $(cd $(dirname \"$MERGED\") && pwd)/$(basename \"$MERGED\")
+#     trustExitCode = true
+
+[alias]
+    s = status
+    co = checkout
+    br = branch
+    cl = clone
+    ci = commit
+    cp = cherry-pick
+    rb = rebase
+
+    # reset everything
+    fuckit = reset --hard HEAD
+
+    b = for-each-ref --sort\\=committerdate --format\\=\"%(committerdate:short)   %(refname:short)\" refs/heads/
+
+    #`git which xxxx` searches for a local branch by name,
+    which = !git branch | grep -i
+
+    # Show the diff between the latest commit and the current state
+    d = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
+
+    # `git di $number` shows the diff between the state `$number` revisions ago and the current state
+    di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+
+    # Pull in remote changes for the current repository and all its submodules
+    p = !"git pull; git submodule foreach git pull origin master"
+
+    # Commit all changes
+    ca = !git add --all && git commit --all
+
+    # Switch to a branch, creating it if necessary
+    #go = "!f() { git checkout -b \"$1\" 2> /dev/null || git checkout \"$1\"; }; f"
+
+    # Show verbose output about tags, branches or remotes
+    tags = tag -l
+    branches = branch -a
+    remotes = remote -v
+
+    # Amend the currently staged files to the latest commit
+    amend = commit --amend --reuse-message=HEAD
+
+    # Interactive rebase with the given number of latest commits
+    reb = "!r() { git rebase -i HEAD~$1; }; r"
+
+    # Find branches containing commit
+    fb = "!f() { git branch -a --contains $1; }; f"
+
+    # Find tags containing commit
+    ft = "!f() { git describe --always --contains $1; }; f"
+
+    # Find commits by source code
+    fc = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short -S$1; }; f"
+
+    # Find commits by commit message
+    fm = "!f() { git log --pretty=format:'%C(yellow)%h  %Cblue%ad  %Creset%s%Cgreen  [%cn] %Cred%d' --decorate --date=short --grep=$1; }; f"
+
+    # Remove branches that have already been merged with master
+    # a.k.a. â€˜delete mergedâ€™
+    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+
+    # List contributors with number of commits
+    contributors = shortlog --summary --numbered
+
+    #stash
+    sl = stash list
+    sa = stash apply
+    ss = stash save
+
+    #grep from root folder
+    gra = "!f() { A=$(pwd) && TOPLEVEL=$(git rev-parse --show-toplevel) && cd $TOPLEVEL && git grep --full-name -In $1 | xargs -I{} echo $TOPLEVEL/{} && cd $A; }; f"
+    grep = grep -Ii
+    gr = grep -Ii
+    #grep on filename
+    f = "!git ls-files | grep -i"
+
+    #assume aliases
+    assume = update-index --assume-unchanged
+    unassume = update-index --no-assume-unchanged
+    #show assumed files
+    assumed = "!git ls-files -v | grep ^h | cut -c 3-"
+    #unassume all the assumed files
+    unassumeall = "!git assumed | xargs git update-index --no-assume-unchanged"
+    assumeall = "!git st -s | awk {'print $2'} | xargs git assume"
+
+    lasttag = describe --tags --abbrev=0
+    lt = describe --tags --abbrev=0
+
+     #merges
+    ours = "!f() { git co --ours $@ && git add $@; }; f"
+    theirs = "!f() { git co --theirs $@ && git add $@; }; f"
+
+    #list remotes
+    rem="!git config -l | grep remote.*url | tail -n +2"
+
+    #apply patch from other local repo
+    lap = "!f() { git --git-dir=$1 format-patch -k -1 --stdout $2 | git am -3 -k; }; f"
+
+    #subtree add - sba = "!f() { git subtree add --prefix $2 $1 master --squash; }; f"
+    #
+    # initial empty commit
+    empty = "!git commit -am\"[empty] Initial commit\" --allow-empty"
+
+    #reset commands
+    r       = reset
+    r1      = reset HEAD^
+    r2      = reset HEAD^^
+    rh      = reset --hard
+    rh1     = reset HEAD^ --hard
+    rh2     = reset HEAD^^ --hard
+
+    amend   = commit --amend
+    caa     = commit -a --amend -C HEAD
+
+    # see changes
+    dc = diff --cached
+    y = diff "@{yesterday}"
+    w = whatchanged
+
+    # logs
+    today = !git log --since=midnight --author=\"$(git config user.name)\" --oneline
+	  ll = log --color --decorate --date=short --graph
+    l1 = log --pretty=oneline --abbrev-commit --first-parent
+
+    diff = diff --word-diff
+    d = diff --word-diff
+    dc = diff --cached
+
+    #diff last commit
+    dlc = diff --cached HEAD^
+
+	## list all aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+    count   = !git shortlog -sn
+[format]
+    pretty = format:%Cred%h%Creset - %Cgreen%an -%C(yellow)%d%Creset %s %Cgreen(%cr)%Creset
+    date = relative
+[core]
+	autocrlf = input
+	ignorecase=false
+  editor = vim
+	pager = less -RFX
+	excludesfile = /Users/tthanhdang/.gitignore
+[push]
+    default = upstream
+[pull]
+    default = current
+[apply]
+    whitespace = nowarn
+[branch]
+    autosetuprebase = always
+[rerere]
+    enabled = true
+[rebase]
+    autosquash = true
+[init]
+	# templatedir = ~/.git_template
+[commit]
+	template = /Users/tthanhdang/.stCommitMsg
+  # template = ~/.stCommitMsg
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[credential]
+	helper = osxkeychain
+

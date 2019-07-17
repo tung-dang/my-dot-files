@@ -1,0 +1,6 @@
+if [ -n "$1" ]; then
+	cat ~/.ssh/id_rsa.pub | ssh $1 "mkdir ~/.ssh 2>/dev/null; cat >> ~/.ssh/authorized_keys"
+	echo "Copied id_rsa.pub to $1"
+else
+	echo "Usage: ssh-copy-id <host>"
+fi

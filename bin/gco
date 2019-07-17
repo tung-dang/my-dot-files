@@ -1,0 +1,44 @@
+#!/bin/sh
+# gco - git checkout to a branch matching a wildcard given as an argument
+
+match=$1
+
+branch=$(git branch | grep -i "$match" | cut -c 3-)
+numResults=$(echo "$branch" | wc -l)
+
+if [ "$numResults" -ne 1 ]; then
+	echo -e "$numResults branches match your pattern. Please pick one of:"
+	echo ""
+
+	for i in $(seq 1 $numResults); do
+		items[$i]=`echo "$branch" | sed "${i}q;d"`
+
+		echo "$i) ${items[$i]}"
+	done
+
+	choice=1
+	echo ""
+	echo -n "Your choice: [$choice]:"
+
+	read inputChoice
+
+	if [ -n "$inputChoice" ]; then
+		choice=$inputChoice
+	fi
+
+	if [ $choice -gt $numResults -o $choice -lt 1 ]; then
+		echo "invalid choice"
+		exit
+	fi
+
+	branch="${items[$choice]}"
+fi
+
+# check is zero/empty string
+if [ -z "$branch" ]; then
+	list_branches=$(git branch | cut -c 3-)
+	echo "No branch matched. Please Pick one of: $list_branches"
+else
+	git checkout "$branch"
+	echo "You are switched to branch $branch"
+fi

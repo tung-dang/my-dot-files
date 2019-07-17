@@ -1,0 +1,14 @@
+{
+  "verbose": true,
+  "delay": 10000,
+  "ext": "js,jsx,ts,tsx,json,html",
+  "ignore": [
+    "*.test.js",
+    "fixtures/*",
+    "__tests__/*",
+    "test/*",
+    "docs/*",
+    "libs/*",
+    "dist/*"
+  ]
+}

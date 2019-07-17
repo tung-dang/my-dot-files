@@ -1,0 +1,8 @@
+**/*.min.*
+**/bower_components/**
+**/lib/**
+**/node_modules/**
+**/target/**
+.git/**
+.idea/**
+target/**

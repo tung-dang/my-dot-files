@@ -1,0 +1,38 @@
+# #!/usr/bin/env bash
+
+# restrictWords() {
+#     FILES_PATTERN='\.(js)(\..+)?$'
+#     # TODO: extend this list with many words
+#     FORBIDDEN='debugger'
+
+#     git diff --cached --name-only | \
+#         grep -E $FILES_PATTERN | \
+#         GREP_COLOR='4;5;37;41' xargs grep --color --with-filename -n $FORBIDDEN && echo 'COMMIT REJECTED Found "$FORBIDDEN" references. Please remove them before commiting' && exit 1
+# }
+
+# restrictWords;
+
+
+# # This is auto-installed by npm-pre-install.js
+# # https://stash.atlassian.com/projects/FE/repos/eslint-git/browse
+# echo "Running ESLint pre-commit hook"
+# files=$(git diff --cached --name-only | grep '\.js\?$')
+
+# # Prevent ESLint help message if no files matched
+# if [[ $files = "" ]] ; then
+#   exit 0
+# fi
+
+# # Even if our custom eslint finds no errors, the return code may still be 1
+# # So pipe the results into grep and look for 'error '. It needs the space
+# # since if there's just warnings it will still come up with
+# # ✖ 4 problems (0 errors, 4 warnings)
+# node_modules/@atlassian/eslint-git/bin/eslint.js $files | grep "error "
+
+# rc=$?
+# # grep returns 0 if a line was selected (i.e. if there was an error)
+# if [[ $rc == 0 ]] ; then
+#   echo "ESLint check failed, commit denied"
+#   echo "Run `node_modules/@atlassian/eslint-git/bin/eslint.js .` from repo root to see errors"
+#   exit 1
+# fi
