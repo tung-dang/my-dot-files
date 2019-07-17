@@ -25,11 +25,13 @@ This is a personal repo to store my stuff. I am not going to collaborate on this
 
 ## Features
 
+- You should have a secret folder, e.g. `03_secret` or `secret`. So that you can store some sensitive scripts (such as installing private NPM registery, token variables...) in that folder.
+- Regularly, run this script `git_remove_all_commits.sh` to clean all git history to make sure there is no commit which may contains a secret stuff.
+- All scripts inside `./bin` folder can be accessed in global.
 - Setup my-dot-files to create file links in user home folder (is always ~/) for all `*.symlink` in my-dot-files. `00-scripts/bootstrap.sh`
 - Install all apps from fresh computer: `00-scripts/install_apps.sh`
 - Updates all apps in computer `00-scripts/update_apps.sh`
 - Almost global paths concentrate into a unique place: `system/path.zsh`
-- Settings, alias, helper functions for git are in `git/`
 - `ohmy.zsh` is settings for your `oh-my-zsh`. Where you can update themes and plugins of `oh-my-zsh`
 
 ### Global vars
@@ -40,10 +42,6 @@ This is a personal repo to store my stuff. I am not going to collaborate on this
 - `$VISUAL`: "$ZSH_DF/bin/subl"
 - `$GIT_GUI`: file path of source tree app.
 - `02_global` is a folder containing global vars or functions which are loaded before others.
-
-### Secret files
-
-Create a folder `03_secret` which is used to contain secret keys you don't want to public. Make sure `03_secret` declared in `.gitignore` file
 
 ## Notes
 
