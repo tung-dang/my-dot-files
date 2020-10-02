@@ -2,7 +2,7 @@
 
 ################################################################################################
 
-grb_i() {
+g_rb_i() {
     git rebase -i "HEAD~${1}"
 }
 
@@ -104,8 +104,29 @@ clear_git_history() {
     git push -f origin master
 }
 
-g_commit_and_push_to_override_last_commit() {
+git_commit_and_push_to_override_last_commit() {
     git add .
     git commit --amend --quiet --no-edit;
     git push --force
+}
+
+git_clean_my_old_branches() {
+  #!/usr/bin/env bash
+
+  read -p "If you want delete branhes type 'D', otherwise press 'Enter' and branches will be printed out only: " action
+  [[ $action = "D" ]] && ECHO="" || ECHO="echo"
+
+  for b in $(git branch -r --merged origin/master | sed /\*/d | egrep -v "^\*|master|develop"); do
+    if [ "$(git log $b --since "10 months ago" | wc -l)" -eq 0 ]; then
+      $ECHO git push origin --delete "${b/origin\/}" --no-verify;
+    fi
+  done
+}
+
+# fbd - delete git branch (including remote branches)
+git_delete_branches() {
+  local branches branch
+  branches=$(git for-each-ref --count=30 --sort=-committerdate refs/heads/ --format="%(refname:short)") &&
+  branch=$(echo "$branches" | fzf --multi ) &&
+  git branch -D $(echo "$branch" | sed "s/.* //" | sed "s#remotes/[^/]*/##")
 }

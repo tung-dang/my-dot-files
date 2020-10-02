@@ -62,7 +62,7 @@ git_create_pr() {
   url=''
 
   if [[ "$origin" = *bitbucket* ]]; then
-    url="$(_get_bb_project)/pull-requests/new?source=$currentBranchName"
+    url="$(_get_bb_project)/pull-requests/new?source=$currentBranchName&dest=master"
   elif [[ "$origin" = *github* ]]; then
     url="$(_get_github_project)/compare/master...$currentBranchName"
   else

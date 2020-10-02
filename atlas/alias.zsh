@@ -19,3 +19,5 @@ alias conf_volt='volt up -e DISABLE_DEV_MODE 1 -e NODES 1 --port 80 --project-na
 
 # Wait for confluence to start
 alias conf_volt_wait='volt wait --timeout 360 --url http://localhost/wiki/internal/healthcheck'
+alias micros cli -- "$@"
+alias a="atlas"

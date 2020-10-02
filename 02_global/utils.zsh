@@ -232,7 +232,6 @@ strip_diff_leading_symbols() {
                sed -E "s/^($color_code_regex)[\+\-]/\1 /g"
 }
 
-
 zip_each_child_folder() {
     for dir in */; do
 
@@ -241,3 +240,4 @@ zip_each_child_folder() {
         zip -r "${dir%/}.zip" "$dir";
     done
 }
+

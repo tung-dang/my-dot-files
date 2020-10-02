@@ -16,10 +16,7 @@ alias gac='git add . && git commit -v -m'
 alias gci='git commit -m'
 alias gcom='git checkout master'
 
-gci_with_ts() {
-    yarn tsc --noEmit -p .
-    git commit -m "$1"
-}
+
 
 # Use the last commit message and amend your stuffs.
 alias g_amend='git commit --amend -C HEAD'

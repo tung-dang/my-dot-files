@@ -60,11 +60,14 @@ echo "Installing must-have apps"
 brew cask install iterm2 dash postman docker
 brew cask install sublime-text intellij-idea webstorm
 brew cask install google-drive dropbox skype filezilla
-brew cask install vlc evernote path-finder libreoffice virtualbox
+brew cask install vlc path-finder libreoffice virtualbox
 brew cask install caffeine spectacle appcleaner
 brew cask install gimp xmind screenflow burn xnconvert
 brew cask install aerial imagemagick imageoptim
 brew cask install diffmerge typora
+brew install zoxide
+brew install starship
+brew install fzf
 
 # Quick Look Plugins (https://github.com/sindresorhus/quick-look-plugins)
 brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch quicklook-csv betterzipql webp-quicklook suspicious-package && qlmanage -r

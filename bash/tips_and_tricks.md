@@ -19,9 +19,6 @@ touch prueba1/dir/a prueba1/dir/b prueba1/dir/c prueba2/dir/a prueba2/dir/c
 mv prueba1 prueba2 # ls prueba2/prueba1/dir => a b c
 mv prueba1/* prueba2 # asks if you want to overwrite prueba2/dir, it doesn't allow it because prueba2/dir is not empty.
 
-# pairwise merge skimpdf
-skimpdf merge a.pdf b.pdf ab.pdf
-
 # available cores in cluster
 qstat -g c
 
@@ -29,16 +26,8 @@ qstat -g c
 system_profiler
 dmidecode # linux
 
-# xls to txt
-xls2csv -q0 -b"--new_sheet--" data_s1.xls > data_s1.txt # -q0 no quotes, watch -g5 number precision
-
 # copy symlink
 cp -R symlink
-# update brew
-brew update
-
-# brew upgrade outdated formulas
-brew upgrade
 
 # download concurrently from same server wget (-j is number concurrent downloads)
 aria2c -x8 URL

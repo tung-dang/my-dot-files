@@ -21,7 +21,7 @@ g_remove_current_local_branch() {
 # remove merged branches. Thanks @Nathanh Hoad:
 # https://nathanhoad.net/git-how-to-remove-merged-branches
 # https://plus.google.com/115587336092124934674/posts/dXsagsvLakJ
-alias g_remove_merged_branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
+alias git_remove_merged_branches='git branch --merged | grep -v "\*" | xargs -n 1 git branch -d'
 
 g_get_current_branch_name() {
     #current_branch_name=$(git branch | sed -n -e 's/^\* \(.*\)/\1/p')
@@ -89,7 +89,6 @@ gmerge() {
     git checkout "$target_branch" && git pull
     git checkout "$current_branch_name"
     git merge "$target_branch"
-    yarn install
 }
 
 # Copy the current branch name to the clipboard.

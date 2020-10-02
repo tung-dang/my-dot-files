@@ -32,7 +32,7 @@
 	path = 
 
 [mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Users/tthanhdang/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 # [difftool "intellij"]
@@ -183,8 +183,15 @@
 	autocrlf = input
 	ignorecase=false
   editor = vim
-	pager = less -RFX
+	pager = delta
 	excludesfile = /Users/tthanhdang/.gitignore
+[delta]
+  plus-color = "#012800"
+  minus-color = "#340001"
+  syntax-theme = Monokai Extended
+  side-by-side = true
+[interactive]
+  diffFilter = delta --color-only
 [push]
     default = upstream
 [pull]
@@ -203,9 +210,10 @@
 	template = /Users/tthanhdang/.stCommitMsg
   # template = ~/.stCommitMsg
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 	required = true
+	process = git-lfs filter-process
 [credential]
 	helper = osxkeychain
 

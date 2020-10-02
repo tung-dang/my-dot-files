@@ -26,22 +26,22 @@ clean_everything_in_node() {
 # Kill all nodes processes
 ##############################################################
 kill_node_apps() {
-    echo "1 - List of node processes will be killed: ";
-    lsof -i | grep node
-    echo "2 - Killing:"
-    lsof -i | grep node | awk '{print $2}' | xargs kill -9
+  echo "1 - List of node processes will be killed: ";
+  lsof -i | grep node
+  echo "2 - Killing:"
+  lsof -i | grep node | awk '{print $2}' | xargs kill -9
 }
 
 ##############################################################
 # Kill a process by port number
 ##############################################################
 kill_port() {
-    echo "1 - List of processes are listening on port: $1";
-    lsof -i TCP:$1 | grep LISTEN;
+  echo "1 - List of processes are listening on port: $1";
+  lsof -i TCP:$1 | grep LISTEN;
 
-    echo "2 - Staring to kill all process listening on port $1";
-    lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9
-    ding;
+  echo "2 - Staring to kill all process listening on port $1";
+  lsof -i TCP:$1 | grep LISTEN | awk '{print $2}' | xargs kill -9
+  ding;
 }
 
 
@@ -64,4 +64,12 @@ update_system_node_path() {
 ##############################################################
 pkg_ls_cmds() {
   jq ".scripts" package.json
+}
+
+##############################################################
+# Refresh dev environment
+##############################################################
+refresh_dev() {
+  nvm use
+  yarn
 }

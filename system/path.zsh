@@ -14,10 +14,12 @@ is-executable getconf && PATH=$(command -v getconf PATH)
 prependPath "/bin"
 prependPath "/usr/bin"
 prependPath "/usr/sbin"
+prependPath "/usr/local/sbin"
 prependPath "/usr/local/bin"
 is-executable brew && prependPath "$(brew --prefix coreutils)/libexec/gnubin"
 prependPath "$ZSH_DF/bin"
 prependPath "$HOME/bin" # Add `~/bin` to the `$PATH`
+prependPath "$HOME/.yarn/bin:$PATH"
 prependPath "~/bin" # Add `~/bin` to the `$PATH`
 prependPath "/sbin"
 

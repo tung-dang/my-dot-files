@@ -1,13 +1,15 @@
 # Setting for the new UTF-8 terminal support in Lion / Mountain Lion
 # https://coderwall.com/p/ehvc8w/set-lang-variable-in-osx-terminal-app
-export LANG="en_GB.UTF-8"
 export LC_COLLATE="en_GB.UTF-8"
 export LC_CTYPE="en_GB.UTF-8"
 export LC_MESSAGES="en_GB.UTF-8"
 export LC_MONETARY="en_GB.UTF-8"
 export LC_NUMERIC="en_GB.UTF-8"
 export LC_TIME="en_GB.UTF-8"
+# to get unicode working in ubuntu
+export LANG="en_GB.UTF-8"
 export LC_ALL="en_US.UTF-8"
+export LANGUAGE="en_US:en"
 
 
 # Highlight section titles in manual pages
