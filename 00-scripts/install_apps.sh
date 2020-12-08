@@ -9,8 +9,7 @@ xcode-select --install
 brew update
 ############################
 echo "Install homebrew packages"
-brew install caskroom/cask/brew-cask
-brew tap caskroom/cask
+brew tap homebrew/cask
 brew install cask
 
 
