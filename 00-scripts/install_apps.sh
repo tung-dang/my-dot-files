@@ -47,6 +47,9 @@ brew install grep --default-names
 brew install ccat watchman
 
 brew install jq
+brew install python
+brew install terminal-notifier
+brew install util-linux
 brew install tree wget shellcheck peco ssh-copy-id
 
 echo "Installing db apps"

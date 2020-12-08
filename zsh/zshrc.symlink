@@ -4,11 +4,11 @@ load_node_version_manager(){
 
 load_bash_plugins() {
   # https://starship.rs/
-  eval "$(starship init zsh)"
+  # eval "$(starship init zsh)"
   # https://github.com/ajeetdsouza/zoxide
   eval "$(zoxide init zsh)"
 
-  source ~/dev/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  # source ~/dev/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 }
 
 main() {

@@ -154,3 +154,4 @@ stop_legion() {
 start_jira_clean() {
   rm -rf ./node_modules && yarn && killall watchman && yarn start jira-spa --ngrok-subdomain tung-test
 }
+
