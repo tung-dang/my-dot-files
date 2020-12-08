@@ -56,9 +56,12 @@ brew install postgresql
 echo "Installing browser apps"
 brew cask install firefox google-chrome google-chrome-canary
 
+ehco "Install editors"
+brew install visual-studio-code
+brew cask install sublime-text intellij-idea webstorm vscode
+
 echo "Installing must-have apps"
 brew cask install iterm2 dash postman docker
-brew cask install sublime-text intellij-idea webstorm
 brew cask install dropbox skype
 brew cask install vlc path-finder virtualbox
 brew cask install caffeine spectacle appcleaner
@@ -90,3 +93,5 @@ npm install -g generact
 echo "You can run /bin/set-defaulst.sh to set default settings for your OS"
 
 exit 0
+
+
