@@ -6,12 +6,14 @@ sh "$ZSH_DF/00-scripts/_install-homebrew.sh";
 echo "Installing Apple Developer Tools";
 xcode-select --install
 
-brew update
+
 ############################
 echo "Install homebrew packages"
+brew update
 brew tap homebrew/cask
 brew install cask
-
+brew tap homebrew/cask-fonts 
+brew tap homebrew/cask-versions
 
 ############################
 echo "Install command line tools"
@@ -22,8 +24,6 @@ brew install git git-extras git-lfs git-smart
 ##################################################
 echo "Install dev environments"
 brew cask install java caskroom/homebrew-versions/java8
-
-brew tap caskroom/versions
 
 echo "Install Ruby stuff"
 brew install rbenv ruby-build
@@ -45,24 +45,22 @@ brew install gnu-sed --default-names
 brew install grep --default-names
 brew install ccat watchman
 
-brew install jq
-brew install python
 brew install terminal-notifier
 brew install util-linux
-brew install tree wget shellcheck peco ssh-copy-id
+brew install jq tree wget shellcheck peco ssh-copy-id
 
 echo "Installing db apps"
 brew install postgresql
 
 
 echo "Installing browser apps"
-brew cask install firefox firefoxdeveloperedition google-chrome google-chrome-canary
+brew cask install firefox google-chrome google-chrome-canary
 
 echo "Installing must-have apps"
 brew cask install iterm2 dash postman docker
 brew cask install sublime-text intellij-idea webstorm
-brew cask install google-drive dropbox skype filezilla
-brew cask install vlc path-finder libreoffice virtualbox
+brew cask install dropbox skype
+brew cask install vlc path-finder virtualbox
 brew cask install caffeine spectacle appcleaner
 brew cask install gimp xmind screenflow burn xnconvert
 brew cask install aerial imagemagick imageoptim
@@ -76,13 +74,10 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 
 # Alfred integration for Homebrew (https://github.com/caskroom/homebrew-cask/blob/master/USAGE.md#alfred-integration)
 
-xcode-select --install
-
 # echo utils
 brew install htop wget bat
 
 echo " - Installing fira-code fonts..."
-brew tap caskroom/fonts
 brew cask install font-source-code-pro font-fira-code
 
 # react
