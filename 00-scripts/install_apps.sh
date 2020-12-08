@@ -34,7 +34,7 @@ brew install nvm mvnvm
 ##################################################
 echo "Version control"
 brew install hub
-brew cask install sourcetree
+brew install sourcetree
 
 ##################################################
 echo "Installing terminal apps"
@@ -54,20 +54,20 @@ brew install postgresql
 
 
 echo "Installing browser apps"
-brew cask install firefox google-chrome google-chrome-canary
+brew install firefox google-chrome google-chrome-canary
 
 ehco "Install editors"
 brew install visual-studio-code
-brew cask install sublime-text intellij-idea webstorm vscode
+brew install sublime-text intellij-idea webstorm vscode
 
 echo "Installing must-have apps"
-brew cask install iterm2 dash postman docker
-brew cask install dropbox skype
-brew cask install vlc path-finder virtualbox
-brew cask install caffeine spectacle appcleaner
-brew cask install gimp xmind screenflow burn xnconvert
-brew cask install aerial imagemagick imageoptim
-brew cask install diffmerge typora
+brew install iterm2 dash postman docker
+brew install dropbox skype
+brew install vlc path-finder virtualbox
+brew install caffeine spectacle appcleaner
+brew install gimp xmind screenflow burn xnconvert
+brew install aerial imagemagick imageoptim
+brew install diffmerge typora
 brew install zoxide
 brew install starship
 brew install fzf
@@ -81,7 +81,7 @@ brew cask install qlcolorcode qlstephen qlmarkdown quicklook-json qlprettypatch 
 brew install htop wget bat
 
 echo " - Installing fira-code fonts..."
-brew cask install font-source-code-pro font-fira-code
+brew install font-source-code-pro font-fira-code
 
 # react
 # https://github.com/CVarisco/create-component-app
