@@ -1,7 +1,3 @@
-load_node_version_manager(){
-  nvm use
-}
-
 load_bash_plugins() {
   # https://starship.rs/
   # eval "$(starship init zsh)"
@@ -26,9 +22,6 @@ main() {
     typeset -U config_files
 
     config_files=($ZSH_DF/**/*.zsh)
-
-    # Don't auto-import anything under ohmyzsh-custom. baaaad shit will ensue.
-    #config_files=(${config_files:#$ZSH_DF/ohmyzsh-custom*})
 
     # exclude `.archive` folder
     config_files=(${config_files:#$ZSH_DF/.archive*})
@@ -73,18 +66,6 @@ main() {
     done
 
     unset config_files
-
-    # https://iterm2.com/documentation-shell-integration.html
-    iterm2_shell_integration="${HOME}/.iterm2_shell_integration.`command basename $SHELL`"
-    test -e $iterm2_shell_integration && source $iterm2_shell_integration
-
-    # https://github.com/sindresorhus/pure
-    fpath=( "$HOME/.zfunctions" $fpath )
-    autoload -U promptinit; promptinit
-    PURE_PROMPT_SYMBOL="❤️ "
-    prompt pure
-
-    load_node_version_manager
 
     # print time to load all env.
     (( total = $SECONDS - $DOTFILES_START ))

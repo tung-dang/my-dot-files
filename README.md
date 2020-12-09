@@ -12,7 +12,7 @@
 ## Setups:
 
 1. Setup [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
-2. Clone this repo `my-dot-files` and run script in `00-scripts/bootstrap.sh`.
+2. Clone this repo `my-dot-files` --> cd to `00-scripts` folder --> run script `/bootstrap.sh`. `/bootstrap.sh` will create sympolic link between `*.symlink` files in this repo to your homefolder `~/*`
 3. ... I am sure there are still a lot of steps to make this shit done.
 
 ## Clean all history commits

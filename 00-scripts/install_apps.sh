@@ -12,7 +12,7 @@ echo "Install homebrew packages"
 brew update
 brew tap homebrew/cask
 brew install cask
-brew tap homebrew/cask-fonts 
+brew tap homebrew/cask-fonts
 brew tap homebrew/cask-versions
 
 ############################
@@ -25,15 +25,11 @@ brew install git git-extras git-lfs git-smart
 echo "Install dev environments"
 brew cask install java caskroom/homebrew-versions/java8
 
-echo "Install Ruby stuff"
-brew install rbenv ruby-build
-
 echo "Install packpage managers"
 brew install nvm mvnvm
 
 ##################################################
 echo "Version control"
-brew install hub
 brew install sourcetree
 
 ##################################################

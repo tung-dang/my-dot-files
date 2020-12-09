@@ -64,3 +64,5 @@ mkcd() {
 
 # copy current path to clipboard
 alias copy_current_path='pwd|pbcopy'
+
+alias notes="open -a typora"
