@@ -11,9 +11,10 @@
 
 ## Setups:
 
-1. Setup [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
+1. Setup [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). You will have `~/.oh-my-zsh` folder in your home folder.
 2. Clone this repo `my-dot-files` --> cd to `00-scripts` folder --> run script `/bootstrap.sh`. `/bootstrap.sh` will create sympolic link between `*.symlink` files in this repo to your homefolder `~/*`
-3. ... I am sure there are still a lot of steps to make this shit done.
+3. Copy all my secret files in other computure to `03_secret` or `secret` folder. These secret files are supposed not be in git.
+4. ... I am sure there are still a lot of steps to make this shit done.
 
 ## Clean all history commits
 
@@ -46,3 +47,4 @@ This is a personal repo to store my stuff. I am not going to collaborate on this
 ## Notes
 
 - In the past, I used to place many large settings/binaries, example settings of Atom and Sublime, in this repo. Now I think it is not a good way to store in git. You should use other file cloud services to do that like Dropbox.
+- I often use `00-scripts/remove_all_git_history.sh` to clean all git history of this repo because I want to avoid leaking any secret tokens as much as I can.
