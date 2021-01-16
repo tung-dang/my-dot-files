@@ -8,9 +8,9 @@ pip install --upgrade pip
 pip install --upgrade wheel
 pip install --upgrade setuptools
 
-brew update;
-brew upgrade;
-brew cleanup;
+brew update
+brew upgrade
+brew cleanup
 
 sudo gem update --system;
 sudo gem update
