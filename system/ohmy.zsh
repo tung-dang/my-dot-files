@@ -65,6 +65,9 @@ DISABLE_MAGIC_FUNCTIONS="true"
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+NVM_AUTOLOAD=1
+NVM_LAZY=1
+
 # Which plugins would you like to load?
 # Standard plugins can be found in $ZSH/plugins/
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
@@ -76,6 +79,8 @@ plugins=(
   cp
   ssh-agent
   zsh_reload
+  nvm
+  common-aliases
 )
 
 source $ZSH/oh-my-zsh.sh
