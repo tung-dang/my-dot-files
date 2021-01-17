@@ -8,8 +8,7 @@
 - Tutorials:
     + http://zachholman.com/2010/08/dotfiles-are-meant-to-be-forked/
 
-
-## Setups:
+## Setups
 
 1. Setup [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh). You will have `~/.oh-my-zsh` folder in your home folder.
 2. Clone this repo `my-dot-files` --> cd to `00-scripts` folder --> run script `/bootstrap.sh`. `/bootstrap.sh` will create sympolic link between `*.symlink` files in this repo to your homefolder `~/*`
@@ -22,7 +21,7 @@ Because I may commit some credential keys accidentally and this is my personal r
 
 ## Contributing
 
-This is a personal repo to store my stuff. I am not going to collaborate on this repo. Please fork this repo and make your own changes.
+This is a personal repo to store my stuff. I am not going to collaborate on this repo. Please fork this repo and make your own changes. There are some stuff which uses my username there so you might have to replace and change some codes to make it work.
 
 ## Features
 
@@ -47,4 +46,3 @@ This is a personal repo to store my stuff. I am not going to collaborate on this
 ## Notes
 
 - In the past, I used to place many large settings/binaries, example settings of Atom and Sublime, in this repo. Now I think it is not a good way to store in git. You should use other file cloud services to do that like Dropbox.
-- I often use `00-scripts/remove_all_git_history.sh` to clean all git history of this repo because I want to avoid leaking any secret tokens as much as I can.

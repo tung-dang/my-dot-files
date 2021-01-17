@@ -1,6 +1,6 @@
 [user]
 	name = Tung Dang
-	email = tthanhdang@atlassian.com
+	email = tung.dang.js@gmail.com
   helper = osxkeychain
 [color]
     ui = auto
@@ -29,10 +29,10 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
-	cmd = /Users/tthanhdang/Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
 # [difftool "intellij"]
@@ -184,7 +184,7 @@
 	ignorecase=false
   editor = vim
 	pager = delta
-	excludesfile = /Users/tthanhdang/.gitignore
+	excludesfile = /Users/tungdang/.gitignore_global
 [delta]
   plus-color = "#012800"
   minus-color = "#340001"
@@ -207,7 +207,7 @@
 [init]
 	# templatedir = ~/.git_template
 [commit]
-	template = /Users/tthanhdang/.stCommitMsg
+	template = ~/.stCommitMsg
   # template = ~/.stCommitMsg
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -216,4 +216,3 @@
 	process = git-lfs filter-process
 [credential]
 	helper = osxkeychain
-

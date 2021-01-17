@@ -32,7 +32,7 @@ diff() {
 
 
 open_chrome_canary_with_access_local_files() {
-  "/Users/tthanhdang/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary" \
+  "~/Applications/Google Chrome Canary.app/Contents/MacOS/Google Chrome Canary" \
    --disable-web-security \
    --disable-gpu \
    --allow-file-access-from-files \

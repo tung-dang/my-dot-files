@@ -11,7 +11,6 @@ alias mpk_not_test='mvn package -Dmaven.test.skip -DskipTests'
 alias qr='mvn clean install -Dmaven.test.skip -DskipTests && cp -f ./target/*.jar ~/confluence_quickreload/'
 
 # start vertigo confluence via volt to match bin/vertigo conventions (from plugin directory)
-# DISABLE_DEV_MODE 1 -> prevents atlassian.dev.mode=true
 # NODES 1 -> enables rsync ports
 # project-name -> docker compose project name
 # project-dir -> directory to mount from host that quickreload will monitor -- MUST be full path

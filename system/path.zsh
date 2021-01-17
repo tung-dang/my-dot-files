@@ -36,10 +36,9 @@ export GRADLE_HOME='$HOME/dev/gradle-2.13/'
 prependPath "$HOME/dev/gradle-2.13/bin"
 prependPath "$HOME/dev/bin"
 
-export PGDATA="/Users/tthanhdang/Library/Application Support/Postgres/var-9.5"
+export PGDATA="~/Library/Application Support/Postgres/var-9.5"
 prependPath "/Applications/Postgres.app/Contents/Versions/9.5/bin"
 
-export PYTHONPATH='/Users/tthanhdang/src/atlassian-directory/atlassian_directory/'
 prependPath "$CATALINA_HOME/bin"
 prependPath "/usr/local/opt/node@8/bin"
 

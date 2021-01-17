@@ -1,11 +1,4 @@
 
-
-docker_jira() {
-    # docker run -d -p 8080:8080 --name 'jira' docker.atlassian.io/apawelczyk/jira:7.3.0
-    # Run this to skip the setup process (username and password are both set to"admin"):
-    docker run -d -p 8080:8080 --name 'jira' -e 'DB_DRIVER=h2' docker.atlassian.io/apawelczyk/jira:7.3.0
-}
-
 docker_login() {
   docker login docker.atl-paas.net
 }

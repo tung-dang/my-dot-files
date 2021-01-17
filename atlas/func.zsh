@@ -84,7 +84,7 @@ clear_conf_data() {
     export PGPASSWORD=postgres
 
 
-    CONFLUENCE_HOME="/Users/tthanhdang/dev/data/conf-cloud-master"
+    CONFLUENCE_HOME="~/dev/data/conf-cloud-master"
     echo " - Step #1: Removing Confluence home folder: $CONFLUENCE_HOME"
     rm -rf $CONFLUENCE_HOME
     echo " - Finish step #1"
@@ -154,4 +154,3 @@ stop_legion() {
 start_jira_clean() {
   rm -rf ./node_modules && yarn && killall watchman && yarn start jira-spa --ngrok-subdomain tung-test
 }
-
